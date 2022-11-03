@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<title>Time Shooter 3: SWAT / The Game Collection</title>
+<link href="bundle.js" rel="preload" as="script" />
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Accept-CH" content="DPR" />
+<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no, minimal-ui" />
+</head>
+<body>
+<div class="preloadpacman">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<script type="text/javascript">
+var options = {
+    "loader": "unity2020",
+	"loaderOptions": {
+		"unityLoaderUrl": "TimeShooter3_CrazyGames.loader.js",
+		"unityConfigOptions": {
+			"codeUrl": "TimeShooter3_CrazyGames.wasm.br",
+			"dataUrl": "TimeShooter3_CrazyGames.data.br",
+			"frameworkUrl": "TimeShooter3_CrazyGames.framework.js.br"
+		}
+	},
+	/*"loader": "5.6.x",
+    "loaderOptions": {
+    "moduleJsonUrl": "PATH_JSON.json",
+    "unityLoaderUrl": "unityloaders/UnityLoader-v3.js"
+	},*/
+    "gameName": "Time Shooter 3: SWAT",
+	"videoThumbnail": "time-shooter-3-swat-540x333.m4a",
+	"author": "GoGoMan",
+    
+	
+	
+	
+	"showAdOnExternal": false,
+    "showAdOnInternal": false,
+    "totalSize": "67 MB",
+    "thumbnail": "fury-bike-rider-cover.jpg",
+    "minTimeBetweenMidrollAdsInMs": 9999999999999,
+    "minTimeBetweenRewardedAdsInMs": 9999999999999,
+    "noMidrollAdInFirstMinutes": 99999999999999999,
+    "noRewardedAdInFirstMinutes": 0,
+    "allowFullscreen": true,
+    "categoryLink": "https://igroutka.ru",
+    "gameLink": "https://igroutka.ru",
+};
+
+function loadScript(url, async, callback) {
+    var head = document.head;
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    if (async) {
+        script.async = true;
+    }
+    script.onreadystatechange = callback;
+    script.onload = callback;
+    head.appendChild(script);
+}
+
+function showConsent() {
+    try {
+        var str = localStorage.getItem("IUB_BANNER_SHOWN");
+        if (!str) {
+            return true;
+        }
+        if (str === 'false') {
+            return false;
+        } else {
+            return true;
+        }
+    } catch (e) {
+        return true;
+    }
+}
+
+if (false) {
+    options.showConsent = showConsent();
+}
+if (false) {
+    options.showCCPA = showConsent();
+}
+var SDK_READY = false;
+var GF_READY = false;
+var GF_LOAD_CALLED = false;
+loadScript("bundle.js", true, function() {
+    Crazygames.load(options);
+
+    loadScript("sdk.js", true, function() {
+        SDK_READY = true;
+
+    });
+});
+</script>
+</body>
+</html>
